@@ -5,9 +5,10 @@
 # see DevNotes.txt for more build details
 
 
+FROM rockylinux:8.9
 
 # FROM ubuntu:21.04   
-FROM ubuntu:20.04   
+# FROM ubuntu:20.04   
 # FROM ubuntu:22.04       ## invoking docker ps from inside zink has strange error, test with older version
 # FROM debian:12.5-slim   ## bookworm-slim
 
@@ -58,6 +59,9 @@ RUN echo ''  ;\
     echo '==================================================================' ;\
     cd    /opt/gitrepo/container/   ;\
     bash /opt/gitrepo/container/install_dependencies.sh 2>&1 | tee /opt/gitrepo/container/install_dependencies.OUT.TXT  ;\
+    echo '==================================================================' ;\
+    echo '==================================================================' ;\
+    bash /opt/gitrepo/container/install_tools.sh 2>&1 | tee /opt/gitrepo/container/install_tools.OUT.TXT  ;\
     #git  checkout jgrg ;\   # the github workflow is doing branch specific build, so no need to do this checkout step
     git   branch | tee /opt/gitrepo/container/git.branch.OUT.TXT  ;\
     git   log --oneline --graph --decorate | tee /opt/gitrepo/container/git.lol.OUT.TXT  ;\
