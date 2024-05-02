@@ -1,5 +1,11 @@
 
 
+ub20.04
+branch with ubuntu 20.04 as base os.
+(plan to shift to rocky8 as prev tool install script added rpm)
+
+~~~~
+
 TBD:
 stuff from 
 https://github.com/tin6150/phylotool/blob/tool/install_phylo_tool.sh
