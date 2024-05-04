@@ -10,7 +10,8 @@ date            | tee    /_install_tool_sh_
 echo "start"    | tee -a /_install_tool_sh_
 
 yum -y update 
-yum -y install vim bash zsh wget curl tar coreutils which util-linux-ng man \
+yum -y install wget  curl 
+yum -y install vim bash zsh tar coreutils which util-linux-ng man \
 		environment-modules \
 		pciutils \
 		smartmontools \

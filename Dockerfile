@@ -26,21 +26,6 @@ ARG TZ=PST8PDT
 ARG NO_COLOR=1
 
 
-RUN echo  ''  ;\
-    touch _TOP_DIR_OF_CONTAINER_  ;\
-    echo "This container build as ubuntu  " | tee -a _TOP_DIR_OF_CONTAINER_  ;\
-    export TERM=dumb      ;\
-    export NO_COLOR=TRUE  ;\
-    apt-get update ;\  
-    echo "installing packages via apt"       | tee -a _TOP_DIR_OF_CONTAINER_  ;\
-    apt-get -y --quiet install apt-file ;\
-    apt-get -y --quiet install git wget ;\
-    # ubuntu:   # procps provides uptime cmd
-    apt-get -y --quiet install git file wget gzip bash less vim procps ;\
-    echo "Done installing packages. " | tee -a _TOP_DIR_OF_CONTAINER_     ;\
-    cd /    ;\
-    echo ""  
-
 
 RUN echo ''  ;\
     echo '==================================================================' ;\
@@ -58,7 +43,7 @@ COPY .           /opt/gitrepo/container/
 RUN echo ''  ;\
     echo '==================================================================' ;\
     cd    /opt/gitrepo/container/   ;\
-    bash /opt/gitrepo/container/install_dependencies.sh 2>&1 | tee /opt/gitrepo/container/install_dependencies.OUT.TXT  ;\
+    bash /opt/gitrepo/container/install_dependencies.el8.sh 2>&1 | tee /opt/gitrepo/container/install_dependencies.OUT.TXT  ;\
     echo '==================================================================' ;\
     echo '==================================================================' ;\
     bash /opt/gitrepo/container/install_tools.sh 2>&1 | tee /opt/gitrepo/container/install_tools.OUT.TXT  ;\
@@ -68,7 +53,7 @@ RUN echo ''  ;\
     cd    /   ;\
     echo  ""
 
-ENV DBG_APP_VER  "Dockerfile 2024.0502"
+ENV DBG_APP_VER  "Dockerfile 2024.0504"
 ENV DBG_DOCKERFILE Dockerfile__base
 
 RUN  cd / \
@@ -98,8 +83,8 @@ ENV TEST_DOCKER_ENV_NEQ1 "Dockerfile ENV assignment as foo bar, no  use of =, bo
 #-- unset path to ensure it didn't make Rscript behave worse cuz somehow "test" got masked/lost
 
 
-#ENTRYPOINT [ "/bin/bash" ]
-ENTRYPOINT [ "/bin/python3" ]
+ENTRYPOINT [ "/bin/bash" ]
+#ENTRYPOINT [ "/bin/python3" ]
 # $@ should be passed by docker run as arg when ENTRYPOINT is invoked
 # ref https://stackoverflow.com/questions/32727594/how-to-pass-arguments-to-shell-script-through-docker-run
 
