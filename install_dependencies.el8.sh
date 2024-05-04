@@ -7,7 +7,8 @@ yum install update
 # text based web browser
 yum install -y install elinks elinks-data elinks-doc lynx  wget curl w3m
 yum install -y install ldap-utils ldapvi   ldb-tools 
-yum install -y install firefox xterm
+yum install -y install epel-release
+yum install -y install firefox xterm xauth
 
 # TBD smc, dell ipmitool...
 # wget to them maybe behind login requirements
