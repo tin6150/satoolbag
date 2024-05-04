@@ -43,11 +43,10 @@ COPY .           /opt/gitrepo/container/
 RUN echo ''  ;\
     echo '==================================================================' ;\
     cd    /opt/gitrepo/container/   ;\
-    bash /opt/gitrepo/container/install_dependencies.el8.sh 2>&1 | tee /opt/gitrepo/container/install_dependencies.OUT.TXT  ;\
+    bash -x /opt/gitrepo/container/install_dependencies.el8.sh 2>&1 | tee /opt/gitrepo/container/install_dependencies.OUT.TXT  ;\
     echo '==================================================================' ;\
     echo '==================================================================' ;\
-    bash /opt/gitrepo/container/install_tools.sh 2>&1 | tee /opt/gitrepo/container/install_tools.OUT.TXT  ;\
-    #git  checkout jgrg ;\   # the github workflow is doing branch specific build, so no need to do this checkout step
+    bash -x /opt/gitrepo/container/install_tools.sh 2>&1 | tee /opt/gitrepo/container/install_tools.OUT.TXT  ;\
     git   branch | tee /opt/gitrepo/container/git.branch.OUT.TXT  ;\
     git   log --oneline --graph --decorate | tee /opt/gitrepo/container/git.lol.OUT.TXT  ;\
     cd    /   ;\

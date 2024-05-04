@@ -88,7 +88,7 @@ echo "end"      | tee -a /_install_tool_sh_
 wget https://github.com/browsh-org/browsh/releases/download/v1.8.0/browsh_1.8.0_linux_amd64 -O browsh.bin
 chmod +x browsh.bin
 mkdir /opt/sw
-ln -s browsh.bin /opt/sw/browsh
+mv browsh.bin /opt/sw/browsh
 
 # vim: noexpandtab tabstop=4 paste
 
