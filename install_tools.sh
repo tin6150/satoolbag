@@ -89,6 +89,7 @@ wget https://github.com/browsh-org/browsh/releases/download/v1.8.0/browsh_1.8.0_
 chmod +x browsh.bin
 mkdir /opt/sw
 mv browsh.bin /opt/sw/browsh
+ln -s /opt/sw/browsh /usr/local/bin/browsh
 
 # vim: noexpandtab tabstop=4 paste
 
