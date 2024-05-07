@@ -16,21 +16,24 @@ yum -y update
 
 wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 rpm -ivh epel-release-latest-9.noarch.rpm
-dnf install dnf-plugin-config-manager
+dnf -y install dnf-plugin-config-manager
 crb enable
-yum install kernel-headers kernel-devel
+yum -y install kernel-headers kernel-devel
 #sudo usermod -a -G render,video $LOGNAME # Adding current user to Video, Render groups. See prerequisites.
 usermod -a -G render,video operator  # just adding a user as place holder
-yum install https://repo.radeon.com/amdgpu-install/6.1/rhel/9.2/amdgpu-install-6.1.60100-1.el9.noarch.rpm
+yum -y install https://repo.radeon.com/amdgpu-install/6.1/rhel/9.3/amdgpu-install-6.1.60100-1.el9.noarch.rpm
 yum clean all
-yum install amdgpu-dkms
-yum install rocm
+yum -y install amdgpu-dkms   	# not working for rocky9.3 on 2024.0507
+yum -y install rocm		# ditto
+#  rocm-hip-runtime rocm-hip-runtime-devel  # would have been included in above in rocky8
 echo "Please reboot system for all settings to take effect."
 
 
 echo "============================================================"
 
-yum install hip-devel
+yum -y install hip-devel
+
+yum -y install hip-runtime-nvidia	# not working in rocky8 or 9
 
 # hip-runtime-nvidia has a dependency that can't currently be satisfied:
 # hipcc-nvidia
