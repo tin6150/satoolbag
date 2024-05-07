@@ -15,17 +15,27 @@ echo "start"    | tee -a /_install_rocm_hip_sh_
 yum -y update 
 
 wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
-sudo rpm -ivh epel-release-latest-9.noarch.rpm
-sudo dnf install dnf-plugin-config-manager
-sudo crb enable
-sudo yum install kernel-headers kernel-devel
+rpm -ivh epel-release-latest-9.noarch.rpm
+dnf install dnf-plugin-config-manager
+crb enable
+yum install kernel-headers kernel-devel
 #sudo usermod -a -G render,video $LOGNAME # Adding current user to Video, Render groups. See prerequisites.
-sudo usermod -a -G render,video operator  # just adding a user as place holder
-sudo yum install https://repo.radeon.com/amdgpu-install/6.1/rhel/9.2/amdgpu-install-6.1.60100-1.el9.noarch.rpm
-sudo yum clean all
-sudo yum install amdgpu-dkms
-sudo yum install rocm
+usermod -a -G render,video operator  # just adding a user as place holder
+yum install https://repo.radeon.com/amdgpu-install/6.1/rhel/9.2/amdgpu-install-6.1.60100-1.el9.noarch.rpm
+yum clean all
+yum install amdgpu-dkms
+yum install rocm
 echo "Please reboot system for all settings to take effect."
+
+
+echo "============================================================"
+
+yum install hip-devel
+
+# hip-runtime-nvidia has a dependency that can't currently be satisfied:
+# hipcc-nvidia
+#yum install hip-runtime-nvidia
+
 
 date            | tee    /_install_rocm_hip_sh_
 echo "end"      | tee -a /_install_rocm_hip_sh_
