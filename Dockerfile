@@ -58,7 +58,10 @@ RUN echo ''  ;\
     echo '==================================================================' ;\
     cd    /opt/gitrepo/container/   ;\
     bash /opt/gitrepo/container/install_dependencies.sh 2>&1 | tee /opt/gitrepo/container/install_dependencies.OUT.TXT  ;\
-    #git  checkout jgrg ;\   # the github workflow is doing branch specific build, so no need to do this checkout step
+    echo '==================================================================' ;\
+    echo '==================================================================' ;\
+    bash -x /opt/gitrepo/container/install_rocm_hip.ub.sh 2>&1 | tee /opt/gitrepo/container/install_rocm_hip.OUT.TXT  ;\
+    echo '==================================================================' ;\
     git   branch | tee /opt/gitrepo/container/git.branch.OUT.TXT  ;\
     git   log --oneline --graph --decorate | tee /opt/gitrepo/container/git.lol.OUT.TXT  ;\
     cd    /   ;\
