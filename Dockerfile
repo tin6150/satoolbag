@@ -5,12 +5,7 @@
 # see DevNotes.txt for more build details
 
 
-FROM rockylinux:8.9
-
-# FROM ubuntu:21.04   
-# FROM ubuntu:20.04   
-# FROM ubuntu:22.04       ## invoking docker ps from inside zink has strange error, test with older version
-# FROM debian:12.5-slim   ## bookworm-slim
+FROM rockylinux:9.3
 
 # To set ghcr to be public, so docker pull does not get unauthorized, see
 # https://www.willvelida.com/posts/pushing-container-images-to-github-container-registry/#making-our-image-publicly-accessible
@@ -46,13 +41,18 @@ RUN echo ''  ;\
     bash -x /opt/gitrepo/container/install_dependencies.el8.sh 2>&1 | tee /opt/gitrepo/container/install_dependencies.OUT.TXT  ;\
     echo '==================================================================' ;\
     echo '==================================================================' ;\
-    bash -x /opt/gitrepo/container/install_tools.sh 2>&1 | tee /opt/gitrepo/container/install_tools.OUT.TXT  ;\
+    bash -x /opt/gitrepo/container/install_tools.sh    2>&1 | tee /opt/gitrepo/container/install_tools.OUT.TXT     ;\
+    echo '==================================================================' ;\
+    echo '==================================================================' ;\
+    echo '==================================================================' ;\
+    bash -x /opt/gitrepo/container/install_rocm_hip.sh 2>&1 | tee /opt/gitrepo/container/install_rocm_hip.OUT.TXT  ;\
+    echo '==================================================================' ;\
     git   branch | tee /opt/gitrepo/container/git.branch.OUT.TXT  ;\
     git   log --oneline --graph --decorate | tee /opt/gitrepo/container/git.lol.OUT.TXT  ;\
     cd    /   ;\
     echo  ""
 
-ENV DBG_APP_VER  "Dockerfile 2024.0504"
+ENV DBG_APP_VER  "Dockerfile 2024.0507"
 ENV DBG_DOCKERFILE Dockerfile__base
 
 RUN  cd / \
