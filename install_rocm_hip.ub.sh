@@ -19,10 +19,10 @@ apt install "linux-headers-$(uname -r)" "linux-modules-extra-$(uname -r)"
 #usermod -a -G render,video $LOGNAME # Adding current user to Video, Render groups. See prerequisites.
 usermod -a -G render,video ubuntu
 wget https://repo.radeon.com/amdgpu-install/6.1/ubuntu/focal/amdgpu-install_6.1.60100-1_all.deb
-apt install ./amdgpu-install_6.1.60100-1_all.deb
-apt update
-apt install amdgpu-dkms
-apt install rocm
+apt-get -y --quiet install ./amdgpu-install_6.1.60100-1_all.deb
+apt-get -y --quiet update
+apt-get -y --quiet  install amdgpu-dkms
+apt-get -y --quiet install rocm
 echo "Please reboot system for all settings to take effect."
 
 
@@ -30,11 +30,11 @@ echo "============================================================"
 
 # https://tin6150.github.io/psg/general_unix.html
 # not sure if driver would install in cloud env... might need to ask for gpu ...
-apt-get install ubuntu-drivers-common && sudo ubuntu-drivers autoinstall
+apt-get -y --quiet install ubuntu-drivers-common && sudo ubuntu-drivers autoinstall
 # reboot
 
 
-apt-get install hip-runtime-nvidia hip-dev
+apt-get -y --quiet install hip-runtime-nvidia hip-dev
 
 # The default paths are:
 #CUDA SDK: /usr/local/cuda
