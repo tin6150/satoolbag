@@ -91,5 +91,11 @@ mkdir /opt/sw
 mv browsh.bin /opt/sw/browsh
 ln -s /opt/sw/browsh /usr/local/bin/browsh
 
+## git lfs
+wget https://packagecloud.io/github/git-lfs/packages/el/8/git-lfs-3.5.1-1.el8.x86_64.rpm/download -O git-lfs.el8_x86_64.rpm
+dnf -y install git-lfs.el8_x86_64.rpm
+# install to /usr/bin/git-lfs , git can find it as subcommand
+
 # vim: noexpandtab tabstop=4 paste
+
 
