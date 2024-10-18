@@ -51,3 +51,11 @@ this repo leverage github workflow cloud build :)
 
 maybe have branch for rocky ve ubuntu
 
+
+~~~
+
+##// maybe forgot about perf_tools when started this.
+##// the two are not the same, but lots of overlap
+##// performance benchmarking need lots of tools to check for things... maybe should just merge into 1...  
+##// for now, satoolbag is Rocky 8 based, whereas perf_tools is CentOS 7 and Rocky 9
+
