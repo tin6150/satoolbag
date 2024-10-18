@@ -9,7 +9,7 @@ yum install -y elinks elinks-data elinks-doc lynx  wget curl w3m
 yum install -y ldap-utils ldapvi   ldb-tools 
 yum install -y epel-release
 yum install -y firefox xterm xauth
-yum install -y gcc make autoconf 
+yum install -y gcc make autoconf  which 
 yum install -y iotop htop atop  btop  numatop  iftop 
 yum install -y nvtop 
 

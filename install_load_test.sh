@@ -38,10 +38,12 @@ ln -s iozone3_506.tar iozone3.tar
 tar xf iozone3.tar
 #cd iozone3_506/current/src
 cd iozone3_506/src/current/
-make
+make linux
+
+ln -s /opt/gitrepo/container/iozone/iozone3_506/src/current/iozone /usr/local/bin
 
 # ./iozone -a
-time -p ./iozone -a -s 1 -O   # run a 1 second test
+time -p ./iozone -a -s 4 -O   # run a very quick test, just to be sure things work
 
 
 ## https://tin6150.github.io/psg/tool.html#iozone
@@ -50,7 +52,8 @@ FECHA=`date +%Y%m%d.%H%M.%S`
 DIR=$FECHA
 mkdir $DIR
 #time -p ../iozone -i 0 -c -e -w -r 1024k -s 16g -t $THREAD -+n -b $DIR/result.xls
-echo time -p ../iozone -i 0 -c -e -w -r 1024k -s 1g -t $THREAD -+n -b $DIR/result.xls
+time  -p ../iozone -i 0 -c -e -w -r 1024k -s 1   -t $THREAD -+n  -b $DIR/result.xls
+echo "use larger N for  -s for meaningful test, here just quick run (but still longer than above)"
 
 cd ..
 
