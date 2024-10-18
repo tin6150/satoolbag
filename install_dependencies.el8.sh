@@ -10,8 +10,10 @@ yum install -y ldap-utils ldapvi   ldb-tools
 yum install -y epel-release
 yum install -y firefox xterm xauth
 yum install -y gcc make autoconf  which 
+yum install -y gcc make autoconf  which 
 yum install -y iotop htop atop  btop  numatop  iftop 
 yum install -y nvtop 
+yum install -y stress
 
 # TBD smc, dell ipmitool...
 # wget to them maybe behind login requirements
