@@ -1,6 +1,11 @@
 rocky8 based tool bag, where i had script to install many rpm
 
 
+~~~~
+
+
+
+
 there was browsh, but not avail in yum?  check epel?
 
 ~~~~~

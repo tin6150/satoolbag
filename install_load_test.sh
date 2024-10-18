@@ -25,6 +25,7 @@ cd    mprime
 wget --quiet https://download.mersenne.ca/gimps/v30/30.19/p95v3019b20.linux64.tar.gz -O p95v3019b20.linux64.tar.gz
 ln -s p95v3019b20.linux64.tar.gz mprime_linux64.tgz
 tar xfz mprime_linux64.tgz
+ln -s /opt/gitrepo/container/mprime/mprime  /usr/local/bin
 cd ..
 
 
@@ -35,7 +36,8 @@ cd    iozone
 wget --quiet https://www.iozone.org/src/current/iozone3_506.tar -O iozone3_506.tar
 ln -s iozone3_506.tar iozone3.tar
 tar xf iozone3.tar
-cd iozone3_506/current/src
+#cd iozone3_506/current/src
+cd iozone3_506/src/current/
 make
 
 # ./iozone -a

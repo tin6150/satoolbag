@@ -1,4 +1,4 @@
-# satoolbag
+= satoolbag
 sys admin tool bag - ie fat container with many sys admin programs in it
 
 
@@ -13,6 +13,9 @@ browsh (depends on firefox) (even works in wsl terminal!)
 docker pull ghcr.io/tin6150/satoolbag:rocky8
 docker run -it --rm --entrypoint=/opt/sw/browsh     ghcr.io/tin6150/satoolbag:rocky8   # ctrl-q to quit
 docker run -it --rm --entrypoint=/usr/bin/firefox   ghcr.io/tin6150/satoolbag:rocky8
+
+# run mprime as benchmark
+docker run -it --rm --entrypoint=/opt/gitrepo/container/mprime/mprime    ghcr.io/tin6150/satoolbag:rocky8 -t    # -t = torture test, -m = menu that ask lots of questions
 
 docker run -it --rm --entrypoint=/usr/bin/firefox  -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME:/tmp/home  --user=$(id -u):$(id -g)  ghcr.io/tin6150/satoolbag:rocky8
 mkdir: cannot create directory '//.mozilla': Permission denied

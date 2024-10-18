@@ -8,6 +8,7 @@ apt-get update
 apt-get -y install elinks elinks-data elinks-doc lynx  wget curl w3m
 apt-get -y install ldap-utils ldapvi   ldb-tools 
 apt-get -y install firefox xterm
+apt-get -y install gcc make 
 
 # TBD smc, dell ipmitool...
 # wget to them maybe behind login requirements
