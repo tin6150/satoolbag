@@ -5,7 +5,8 @@
 # see DevNotes.txt for more build details
 
 
-FROM rockylinux:8.10
+FROM rockylinux:8
+## there is no 8.10 in docker hub yet?!
 
 # FROM ubuntu:21.04   
 # FROM ubuntu:20.04   
