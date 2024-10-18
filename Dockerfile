@@ -5,7 +5,7 @@
 # see DevNotes.txt for more build details
 
 
-FROM rockylinux:8.9
+FROM rockylinux:8.10
 
 # FROM ubuntu:21.04   
 # FROM ubuntu:20.04   
@@ -47,12 +47,19 @@ RUN echo ''  ;\
     echo '==================================================================' ;\
     echo '==================================================================' ;\
     bash -x /opt/gitrepo/container/install_tools.sh 2>&1 | tee /opt/gitrepo/container/install_tools.OUT.TXT  ;\
+    echo '==================================================================' ;\
+    echo '==================================================================' ;\
+    bash -x /opt/gitrepo/container/install_load_test.sh 2>&1 | tee /opt/gitrepo/container/install_load_test.OUT.TXT  ;\
+    echo '==================================================================' ;\
+    echo '==================================================================' ;\
     git   branch | tee /opt/gitrepo/container/git.branch.OUT.TXT  ;\
     git   log --oneline --graph --decorate | tee /opt/gitrepo/container/git.lol.OUT.TXT  ;\
     cd    /   ;\
     echo  ""
 
-ENV DBG_APP_VER  "Dockerfile 2024.0504"
+
+
+ENV DBG_APP_VER  "Dockerfile 2024.1017"
 ENV DBG_DOCKERFILE Dockerfile__base
 
 RUN  cd / \
