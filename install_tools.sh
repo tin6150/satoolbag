@@ -43,6 +43,7 @@ yum -y install \
 		tcsh ksh zsh fish \
 		ncurses tmux screen \
 		ipmitool redfish \
+		hashcat \
 		traceroute
 
 		#openssh-clients numactl libtorque opensm-libs  are needed by Y's staging test
