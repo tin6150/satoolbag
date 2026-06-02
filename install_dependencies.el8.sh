@@ -5,15 +5,18 @@
 date
 yum install update
 # text based web browser
-yum install -y elinks elinks-data elinks-doc lynx  wget curl w3m
-yum install -y ldap-utils ldapvi   ldb-tools 
+yum install -y curl   # seems installed by here
+yum install -y wget 
 yum install -y epel-release
+yum install -y ldap-utils ldapvi   ldb-tools 
 yum install -y firefox xterm xauth
 yum install -y gcc make autoconf  which 
 yum install -y gcc make autoconf  which 
 yum install -y iotop htop atop  btop  numatop  iftop 
 yum install -y nvtop 
 yum install -y stress
+yum install -y elinks elinks-data elinks-doc 
+yum install -y lynx  w3m
 
 echo "==================================="
 echo "=== Install Mellanox mst tool ================================"
@@ -21,7 +24,7 @@ echo "=== Install Mellanox mst tool ================================"
 
 mkdir Downloads
 cd    Downloads
-wget  https://www.mellanox.com/downloads/MFT/mft-4.35.0-159-x86_64-rpm.tgz
+wget  -q https://www.mellanox.com/downloads/MFT/mft-4.35.0-159-x86_64-rpm.tgz
 tar   xfz mft-4.35.0-159-x86_64-rpm.tgz
 cd    mft-4.35.0-159-x86_64-rpm/RPMS
 
