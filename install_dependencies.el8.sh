@@ -18,7 +18,17 @@ yum install -y stress
 echo "==================================="
 echo "=== Install Mellanox mst tool ================================"
 
-yum install -y https://www.mellanox.com/downloads/MFT/mft-4.35.0-159-x86_64-rpm.tgz
+
+mkdir Downloads
+cd    Downloads
+wget  https://www.mellanox.com/downloads/MFT/mft-4.35.0-159-x86_64-rpm.tgz
+tar   xfz mft-4.35.0-159-x86_64-rpm.tgz
+cd    mft-4.35.0-159-x86_64-rpm/RPMS
+
+yum install -y mft-4.35.0-159.x86_64.rpm
+yum install -y mft-autocomplete-4.35.0-159.x86_64.rpm mft-mlx5-4.35.0-159.x86_64.rpm       mft-oem-4.35.0-159.x86_64.rpm mft-nvredfish-4.35.0-159.x86_64.rpm  mft-pcap-4.35.0-159.x86_64.rpm
+
+
 # https://network.nvidia.com/products/adapter-software/firmware-tools/
 # Linux: mft-4.35.0-159-x86_64-rpm.tgz
 # MD5SUM: b4d64f9f37fa5ceb052434ec8b76ffcc

@@ -29,6 +29,6 @@ Error: cannot open display: :0.0
 singularity pull --name browsh.sif docker://browsh/browsh
 
 
-# mellanox mst
+# mellanox mft
 
 2026.0602 trying to add mst tool to container, not sure if it would work in hpc under aptainer

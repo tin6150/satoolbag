@@ -64,3 +64,7 @@ maybe have branch for rocky ve ubuntu
 ##// performance benchmarking need lots of tools to check for things... maybe should just merge into 1...  
 ##// for now, satoolbag is Rocky 8 based, whereas perf_tools is CentOS 7 and Rocky 9
 
+
+# mft Mellanox tool + ibswinfo
+// 2026.0602:
+singularity pull --name satoolbag_el8_mst.sif docker://ghcr.io/tin6150/satoolbag:rocky8
