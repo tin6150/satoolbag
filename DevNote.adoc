@@ -31,6 +31,11 @@ oh maybe didn't need this, could have pork barrelled on top of:
 singularity pull --name tin6150_perf_tools_latest.sif docker://ghcr.io/tin6150/perf_tools:master
 
 
+atop
+btop
+iotop
+iftop
+seems like works better inside singularity than inside docker 
 
 TBD:
 stuff from 

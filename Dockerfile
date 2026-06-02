@@ -58,9 +58,17 @@ RUN echo ''  ;\
     cd    /   ;\
     echo  ""
 
+RUN echo ''  ;\
+    echo '==================================================================' ;\
+    cd    /opt/gitrepo/   ;\
+    git   clone  https://github.com/tin6150/ibswinfo.git  | tee /opt/gitrepo/git.clone.ibswitchinfo.OUT.TXT  ;\
+    echo '==================================================================' ;\
+    echo '==================================================================' ;\
+    cd    /   ;\
+    echo  ""
 
 
-ENV DBG_APP_VER  "Dockerfile 2024.1017.iozone"
+ENV DBG_APP_VER  "Dockerfile 2026.0602.mst.ibswinfo"
 ENV DBG_DOCKERFILE Dockerfile__base
 
 RUN  cd / \

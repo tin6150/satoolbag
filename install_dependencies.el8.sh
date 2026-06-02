@@ -13,6 +13,18 @@ yum install -y gcc make autoconf  which
 yum install -y iotop htop atop  btop  numatop  iftop 
 yum install -y nvtop 
 
+echo "==================================="
+echo "=== Install Mellanox mst tool ================================"
+
+yum install -y https://www.mellanox.com/downloads/MFT/mft-4.35.0-159-x86_64-rpm.tgz
+# https://network.nvidia.com/products/adapter-software/firmware-tools/
+# Linux: mft-4.35.0-159-x86_64-rpm.tgz
+# MD5SUM: b4d64f9f37fa5ceb052434ec8b76ffcc
+# SHA256: df421ef7d0fb1d3bba25e28a17740655fb687387d1ddfdb3944bbcd1c666a385
+# Size: 72.52 M
+
+
+
 # TBD smc, dell ipmitool...
 # wget to them maybe behind login requirements
 
