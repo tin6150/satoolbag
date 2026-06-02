@@ -68,7 +68,7 @@ RUN echo ''  ;\
     echo  ""
 
 
-ENV DBG_APP_VER  "Dockerfile 2026.0602.mft.ibswinfo"
+ENV DBG_APP_VER  "Dockerfile 2026.0602.mft.ibswinfo.find"
 ENV DBG_DOCKERFILE Dockerfile__base
 
 RUN  cd / \
