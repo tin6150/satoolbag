@@ -9,6 +9,8 @@ yum install -y curl   # seems installed by here
 yum install -y wget 
 yum install -y findutils     # needed by mellanox mdt/mst
 yum install -y pciutils      # needed by mellanox mdt/mst   find, xargs
+yum install -y systemd-udev  # needed by mellanox mdt/mst   
+yum install -y usbutils      # needed by mellanox mdt/mst   
 yum install -y epel-release
 yum install -y ldap-utils ldapvi   ldb-tools 
 yum install -y firefox xterm xauth
