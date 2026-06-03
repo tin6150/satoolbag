@@ -7,14 +7,16 @@ yum install update
 # text based web browser
 yum install -y curl   # seems installed by here
 yum install -y wget 
+yum install -y kernel-devel dkms
 yum install -y findutils     # needed by mellanox mdt/mst
 yum install -y pciutils      # needed by mellanox mdt/mst   find, xargs
 yum install -y systemd-udev  # needed by mellanox mdt/mst   
 yum install -y usbutils      # needed by mellanox mdt/mst   
 yum install -y epel-release
+yum install -y mstflint      # open source versino of mst...
+
 yum install -y ldap-utils ldapvi   ldb-tools 
 yum install -y firefox xterm xauth
-yum install -y gcc make autoconf  which 
 yum install -y gcc make autoconf  which 
 yum install -y iotop htop atop  btop  numatop  iftop 
 yum install -y nvtop 

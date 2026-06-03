@@ -1,5 +1,7 @@
 rocky8 based tool bag, where i had script to install many rpm
 
+github action still build this, takes ~52 min  2026.0602
+
 
 ~~~~
 
@@ -68,3 +70,33 @@ maybe have branch for rocky ve ubuntu
 # mft Mellanox tool + ibswinfo
 // 2026.0602:
 singularity pull --name satoolbag_el8_mst.sif docker://ghcr.io/tin6150/satoolbag:rocky8
+
+
+still missing Module mst_pci, so not working:
+
+[root@n0215.savio3 /global/home/users/tin/gs/singularity-repo]# singularity shell ./satoolbag_el8_mst.sif
+Apptainer>
+Apptainer> mst start
+Starting MST (Mellanox Software Tools) driver set
+Loading MST PCI modulemodprobe: FATAL: Module mst_pci not found in directory /lib/modules/4.18.0-553.58.1.el8_10.x86_64
+ - Failure: 1
+Loading MST PCI configuration modulemodprobe: FATAL: Module mst_pciconf not found in directory /lib/modules/4.18.0-553.58.1.el8_10.x86_64
+ - Failure: 1
+Create devices
+
+mst_pci driver not found
+Unloading MST PCI module (unused) - Failure: 1
+Unloading MST PCI configuration module (unused) - Failure: 1
+Apptainer> ls /dev/mst
+Apptainer>
+
+
+singularity shell --bind /lib/modules ./satoolbag_el8_mst.sif
+// still no dice
+
+installing kernel-devel and dkms unlikely to solve this?
+need container kernel to match host?
+
+adding:    dnf install -y mstflint
+echo "Usage: singularity exec --nv --writable-tmpfs <image> mstflint -d <pci_address> q"  #??
+
