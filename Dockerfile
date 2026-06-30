@@ -7,7 +7,8 @@
 
 
 # FROM ubuntu:21.04   
-FROM ubuntu:20.04   
+# FROM ubuntu:20.04   
+FROM ubuntu:22.04
 # FROM ubuntu:22.04       ## invoking docker ps from inside zink has strange error, test with older version
 # FROM debian:12.5-slim   ## bookworm-slim
 
@@ -67,7 +68,7 @@ RUN echo ''  ;\
     cd    /   ;\
     echo  ""
 
-ENV DBG_APP_VER  "Dockerfile 2024.0502"
+ENV DBG_APP_VER  "Dockerfile 2026.0630"
 ENV DBG_DOCKERFILE Dockerfile__base
 
 RUN  cd / \

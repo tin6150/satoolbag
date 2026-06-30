@@ -29,5 +29,20 @@ apt-get update
 echo "==================================="
 echo "==================================="
 
+echo "---- install libs needed by CoMPASS ----"
+
+apt-get -y install git dpkg-dev cmake g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev
+apt-get -y install build-essential
+
+echo "---- install root from caen, no .deb avail yet ---- ref https://root.cern/install/#download-a-pre-compiled-binary-distribution ----" 
+
+
+mkdir -p /opt/root
+cd /opt
+wget --quiet "https://root.cern/download/root_v6.40.02.Linux-almalinux9.8-x86_64-gcc11.5.tar.gz"
+tar -xzvf root_v6.40.02.Linux-almalinux9.8-x86_64-gcc11.5.tar.gz
+
+
+
 
 # cd /
