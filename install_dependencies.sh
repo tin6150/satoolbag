@@ -37,15 +37,38 @@ apt-get -y install build-essential
 apt-get -y install libwayland-cursor0 libwayland-client0 libwayland-egl1 libxkbcommon0 libxkbcommon-x11-0 libxcb-render0 libxcb-xkb1 libegl1 libgl1
 
 
+
+echo "---- install dependencies for root"
+# per https://root.cern/install/dependencies/
+
+apt-get -y install binutils cmake dpkg-dev g++ gcc libssl-dev git libx11-dev libxext-dev libxft-dev libxpm-dev python3 libtbb-dev libvdt-dev libgif-dev
+apt-get -y install gfortran libpcre3-dev \
+libglu1-mesa-dev libglew-dev libftgl-dev \
+libfftw3-dev libcfitsio-dev libgraphviz-dev \
+libavahi-compat-libdnssd-dev libldap2-dev \
+ python3-dev python3-numpy libxml2-dev libkrb5-dev \
+libgsl-dev qtwebengine5-dev nlohmann-json3-dev libmysqlclient-dev \
+libgl2ps-dev \
+liblzma-dev libxxhash-dev liblz4-dev libzstd-dev libcurl4-openssl-dev
+
+
+
 echo "---- install root from caen, no .deb avail yet ---- ref https://root.cern/install/#download-a-pre-compiled-binary-distribution ----" 
 
 
 mkdir -p /local/root
 cd /local
 wget --quiet "https://root.cern/download/root_v6.40.02.Linux-almalinux9.8-x86_64-gcc11.5.tar.gz"
-tar -xzvf root_v6.40.02.Linux-almalinux9.8-x86_64-gcc11.5.tar.gz
+ls -latrh
+tar xfz  root_v6.40.02.Linux-almalinux9.8-x86_64-gcc11.5.tar.gz
 
+cd root
+mkdir builddir
+cd builddir
+cmake ../root
+cmake --build . 
 
+ldconfig # update ldconfig cache
 
 
 # cd /
