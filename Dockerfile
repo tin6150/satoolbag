@@ -68,7 +68,7 @@ RUN echo ''  ;\
     cd    /   ;\
     echo  ""
 
-ENV DBG_APP_VER  "Dockerfile 2026.0630c"
+ENV DBG_APP_VER  "Dockerfile 2026.0630d"
 ENV DBG_DOCKERFILE Dockerfile__base
 
 RUN  cd / \
@@ -99,7 +99,9 @@ ENV TEST_DOCKER_ENV_NEQ1 "Dockerfile ENV assignment as foo bar, no  use of =, bo
 
 
 #ENTRYPOINT [ "/bin/bash" ]
-ENTRYPOINT [ "/bin/python3" ]
+#ENTRYPOINT [ "/bin/python3" ]
+## >> /opt2 is bind mounted from host.  this image just have root and other necessary libaries needed to run CoMPASS (cuz it need much newer glibc++ than avail in EL8)
+ENTRYPOINT [ "/opt2/CoMPASS-v2.6.4/CoMPASS" ]
 # $@ should be passed by docker run as arg when ENTRYPOINT is invoked
 # ref https://stackoverflow.com/questions/32727594/how-to-pass-arguments-to-shell-script-through-docker-run
 

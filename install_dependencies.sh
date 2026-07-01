@@ -35,6 +35,7 @@ apt-get -y install git dpkg-dev cmake g++ gcc binutils libx11-dev libxpm-dev lib
 apt-get -y install build-essential
 
 apt-get -y install libwayland-cursor0 libwayland-client0 libwayland-egl1 libxkbcommon0 libxkbcommon-x11-0 libxcb-render0 libxcb-xkb1 libegl1 libgl1
+apt-get -y install libtbb2 libtbb-dev
 
 
 
@@ -69,6 +70,10 @@ cmake ../root
 cmake --build . 
 
 ldconfig # update ldconfig cache
+
+# but still have to manually: source /local/root/bin/thisroot.sh
+# so hacking it
+cp -p /local/root/bin/thisroot.*sh /etc/profile.d
 
 
 # cd /
