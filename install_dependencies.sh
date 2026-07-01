@@ -34,11 +34,14 @@ echo "---- install libs needed by CoMPASS ----"
 apt-get -y install git dpkg-dev cmake g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev
 apt-get -y install build-essential
 
+apt-get -y install libwayland-cursor0 libwayland-client0 libwayland-egl1 libxkbcommon0 libxkbcommon-x11-0 libxcb-render0 libxcb-xkb1 libegl1 libgl1
+
+
 echo "---- install root from caen, no .deb avail yet ---- ref https://root.cern/install/#download-a-pre-compiled-binary-distribution ----" 
 
 
-mkdir -p /opt/root
-cd /opt
+mkdir -p /local/root
+cd /local
 wget --quiet "https://root.cern/download/root_v6.40.02.Linux-almalinux9.8-x86_64-gcc11.5.tar.gz"
 tar -xzvf root_v6.40.02.Linux-almalinux9.8-x86_64-gcc11.5.tar.gz
 

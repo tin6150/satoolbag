@@ -68,7 +68,7 @@ RUN echo ''  ;\
     cd    /   ;\
     echo  ""
 
-ENV DBG_APP_VER  "Dockerfile 2026.0630"
+ENV DBG_APP_VER  "Dockerfile 2026.0630b"
 ENV DBG_DOCKERFILE Dockerfile__base
 
 RUN  cd / \
