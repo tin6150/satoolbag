@@ -33,6 +33,7 @@ echo "---- install libs needed by CoMPASS ----"
 
 apt-get -y install git dpkg-dev cmake g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev
 apt-get -y install build-essential
+apt-get -y install qt6-base-dev qt6-tools-dev-tools
 
 apt-get -y install libwayland-cursor0 libwayland-client0 libwayland-egl1 libxkbcommon0 libxkbcommon-x11-0 libxcb-render0 libxcb-xkb1 libegl1 libgl1
 apt-get -y install libtbb2 libtbb-dev
@@ -69,11 +70,12 @@ cd builddir
 cmake ../root
 cmake --build . 
 
-ldconfig # update ldconfig cache
-
+ldconfig # update ldconfig cache, doesn't seems to work out correctly for container
 # but still have to manually: source /local/root/bin/thisroot.sh
 # so hacking it
-cp -p /local/root/bin/thisroot.*sh /etc/profile.d
-
+##cp -p /local/root/bin/thisroot.*sh /etc/profile.d
+## somehow the copy for that doesn't get ROOTSYS var setup, maybe path detection dependent.  
+## so doing this nested version instead, which works:
+echo "source /local/root/bin/thisroot.sh" > /etc/profile.d/cern_root_env.sh
 
 # cd /
